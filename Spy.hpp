@@ -1,19 +1,15 @@
+#ifndef SPY_HPP
+#define SPY_HPP
+
 #include "Player.hpp"
+#include "Game.hpp"
 namespace coup{
-    class Spy : Player
-    {
-    private:
-        /* data */
+class Spy : public Player{
     public:
-        Spy(/* args */);
-        ~Spy();
-    };
-    
-    Spy::Spy(/* args */)
-    {
-    }
-    
-    Spy::~Spy()
-    {
-    }
-}
+    Spy(Game& game,const std::string& name) : Player(game,name) { setRole("Spy");
+    game.addPlayer(this);
+}  
+    void undo(Player& who); 
+};}
+
+#endif // SPY_HPP
